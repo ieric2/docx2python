@@ -269,7 +269,8 @@ def get_context(zipf: zipfile.ZipFile) -> Dict[str, Any]:
         "footnotes": footnotes,
         "endnotes": endnotes,
         "content_path2rels": content_path2rels,
-        "docProp2text": collect_docProps(zipf.read("docProps/core.xml")),
+        "docProp2text": {},
+        # "docProp2text": collect_docProps(zipf.read("docProps/core.xml")),
     }
     try:
         numId2numFmts = collect_numFmts(zipf.read("word/numbering.xml"))

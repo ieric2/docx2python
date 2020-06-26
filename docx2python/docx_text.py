@@ -100,6 +100,8 @@ def _get_bullet_string(paragraph: ElementTree.Element, context: Dict[str, Any]) 
         numId = numPr.find(qn("w:numId")).attrib[qn("w:val")]
         ilvl = numPr.find(qn("w:ilvl")).attrib[qn("w:val")]
         numFmt = context["numId2numFmts"][numId][int(ilvl)]
+    except IndexError:
+        numFmt = "lowerLetter"
     except (AttributeError, KeyError):
         # not a numbered paragraph
         return ""
